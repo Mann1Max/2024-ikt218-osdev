@@ -28,7 +28,7 @@ int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
     {
         // første linje skriver til 
         video_memory[i*2] =  hello_world[i];
-        video_memory[i*2+1] = 0x025;
+        video_memory[i*2+1] = 0x02;
     }
 
     // Call cpp kernel_main (defined in kernel.cpp)

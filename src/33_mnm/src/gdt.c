@@ -18,7 +18,7 @@ void init_gdt() {
    gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF); // User mode code segment
    gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF); // User mode data segment
 
-   // Load the GDT
+   // Load the GDT   
    gdt_load(&gdt_ptr);
 	
 	// Flush GDT pointer
@@ -40,4 +40,4 @@ void gdt_set_gate(int32_t num, uint32_t base, uint32_t limit, uint8_t access, ui
 
     gdt[num].granularity |= gran & 0xF0;
     gdt[num].access      = access;
-} 
+}
