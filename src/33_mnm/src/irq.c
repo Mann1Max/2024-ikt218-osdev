@@ -4,30 +4,29 @@
 #include "libc/stdio.h"
 #include "monitor.h"  // Include this line
 #include "libc/string.h"
+#include "input.h"
 
 // irq.c
 void timer_handler(registers_t* regs, void* data) {
     static uint32_t tick = 0;
     tick++;
     char buffer[50];
-    monitor_write("Timer interrupt: ", 17);
-    int_to_string(tick, buffer);
-    monitor_write(buffer, strlen(buffer));
-    monitor_put('\n');
+    //monitor_write("Timer interrupt: ", 17);
+    //int_to_string(tick, buffer);
+    //monitor_write(buffer, strlen(buffer));
+    //monitor_put('\n');
 }
 
 void keyboard_handler(registers_t* regs, void* data) {
     unsigned char scancode = inb(0x60);
-    char buffer[50];
-    monitor_write("Key pressed: ", 13);
-    int_to_string(scancode, buffer);
-    monitor_write(buffer, strlen(buffer));
-    monitor_put('\n');
+    char f = scancode_to_ascii(&scancode);
+    unsigned char printarray[2];
+    printarray[0]= f;
+    printarray[1]= '\0';
+    printf("%s", printarray);
+
 }
 
-
-
-// irq.c
 void irq2_handler(registers_t* regs, void* data) {
     monitor_write("IRQ2 handled\n", 13);
 }
@@ -39,8 +38,8 @@ void init_irq() {
         irq_handlers[i].num = i;
     }
     register_irq_handler(IRQ0, timer_handler, NULL);
-
-    register_irq_handler(IRQ2, irq2_handler, NULL); // Register additional IRQ handler
+    register_irq_handler(IRQ1, keyboard_handler, NULL);
+    register_irq_handler(IRQ2, irq2_handler, NULL);
 }
 
 

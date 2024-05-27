@@ -17,7 +17,8 @@
         "limits.h": "c",
         "string.h": "c",
         "stdarg.h": "c",
-        "monitor.h": "c"
+        "monitor.h": "c",
+        "gdt.h": "c"
     }
     
 

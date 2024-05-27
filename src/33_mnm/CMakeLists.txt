@@ -71,6 +71,7 @@ add_executable(uiaos-kernel
     src/isrA.asm
     src/libc/stdio.c
     src/monitor.c
+	src/input.c
 )
 
 

@@ -24,7 +24,7 @@ int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
     init_idt();
     init_irq();
 
-   // init_interrupts();
+    asm volatile("sti");
 
    char* hello_world = "Hello World!\n";
     size_t len = strlen(hello_world);
