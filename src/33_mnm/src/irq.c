@@ -6,25 +6,28 @@
 #include "libc/string.h"
 #include "input.h"
 
-// irq.c
+#define TICKS_PER_SECOND 10
+
 void timer_handler(registers_t* regs, void* data) {
     static uint32_t tick = 0;
     tick++;
-    char buffer[50];
-    //monitor_write("Timer interrupt: ", 17);
-    //int_to_string(tick, buffer);
-    //monitor_write(buffer, strlen(buffer));
-    //monitor_put('\n');
+
+    if (tick % TICKS_PER_SECOND == 0) {
+        char buffer[50];
+        int_to_string(tick / TICKS_PER_SECOND, buffer);
+        monitor_write("Uptime: ", 8);
+        monitor_write(buffer, strlen(buffer));
+        monitor_write(" seconds\n", 9);
+    }
 }
 
 void keyboard_handler(registers_t* regs, void* data) {
-    unsigned char scancode = inb(0x60);
-    char f = scancode_to_ascii(&scancode);
-    unsigned char printarray[2];
-    printarray[0]= f;
-    printarray[1]= '\0';
-    printf("%s", printarray);
+    uint8_t scancode = inb(0x60);
+    char c = scancode_to_ascii(&scancode);
 
+    if (c) {
+        monitor_put(c);
+    }
 }
 
 void irq2_handler(registers_t* regs, void* data) {
