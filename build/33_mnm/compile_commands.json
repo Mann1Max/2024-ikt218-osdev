@@ -28,5 +28,40 @@
   "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
   "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/string.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/string.c",
   "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/string.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/common.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/common.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/common.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/idt.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/idt.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/idt.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/isr.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/isr.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/isr.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/irq.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/irq.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/irq.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/bin/nasm -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/isrA.asm.o /workspaces/2024-ikt218-osdev/src/33_mnm/src/isrA.asm",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/isrA.asm"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/libc/stdio.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/libc/stdio.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/libc/stdio.c"
+},
+{
+  "directory": "/workspaces/2024-ikt218-osdev/build/33_mnm",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2024-ikt218-osdev/src/33_mnm/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/monitor.c.o -c /workspaces/2024-ikt218-osdev/src/33_mnm/src/monitor.c",
+  "file": "/workspaces/2024-ikt218-osdev/src/33_mnm/src/monitor.c"
 }
 ]

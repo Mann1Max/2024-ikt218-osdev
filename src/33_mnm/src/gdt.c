@@ -1,7 +1,6 @@
 #include "../include/gdt.h"
 #include "../include/libc/stdint.h"
 
-#define GDT_ENTRIES 5
 
 struct gdt_entry gdt[GDT_ENTRIES];
 struct gdt_ptr gdt_ptr;
@@ -20,9 +19,6 @@ void init_gdt() {
 
    // Load the GDT   
    gdt_load(&gdt_ptr);
-	
-	// Flush GDT pointer
-	gdt_flush((uint32_t)&gdt_ptr);
 }
 
 void gdt_load(struct gdt_ptr *gdt_ptr) {

@@ -5,6 +5,10 @@
 #include "../include/gdt.h"
 #include "libc/string.h"
 #include <libc/stdio.h>
+#include "../include/idt.h"
+#include "../include/interrupts.h"
+#include "monitor.h"
+
 struct multiboot_info {
     uint32_t size;
     uint32_t reserved;
@@ -15,22 +19,19 @@ int kernel_main();
 
 
 int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
-    
+    monitor_initialize();
     init_gdt();
+    init_idt();
+    init_irq();
 
-    char* hello_world = "Hello World!";
+   // init_interrupts();
+
+   char* hello_world = "Hello World!\n";
     size_t len = strlen(hello_world);
-    //write to video memory
-    char* video_memory = (char*)0x0b8000;
+    monitor_write(hello_world, len);
 
-    //write hellow_world to video_memory:
-    for (size_t i = 0; i < len; i++)
-    {
-        // første linje skriver til 
-        video_memory[i*2] =  hello_world[i];
-        video_memory[i*2+1] = 0x02;
-    }
-
+    //asm volatile("int $0x0");
+   
     // Call cpp kernel_main (defined in kernel.cpp)
     return kernel_main();
 }

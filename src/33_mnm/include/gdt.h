@@ -1,5 +1,6 @@
-// gdt.h
+#pragma once
 #include "libc/stdint.h"
+#define GDT_ENTRIES 5
 
 struct gdt_entry {
   uint16_t limit_low;
