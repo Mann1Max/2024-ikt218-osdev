@@ -30,8 +30,10 @@ int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
     size_t len = strlen(hello_world);
     monitor_write(hello_world, len);
 
-    //asm volatile("int $0x0");
-   
+    asm volatile("int $0x1");
+    asm volatile("int $0x2");
+    asm volatile("int $0x3");
+    asm volatile("int $0x22");
     // Call cpp kernel_main (defined in kernel.cpp)
     return kernel_main();
 }

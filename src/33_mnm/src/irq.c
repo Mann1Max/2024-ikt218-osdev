@@ -2,24 +2,28 @@
 #include "common.h"
 #include "libc/stddef.h"
 #include "libc/stdio.h"
-#include "monitor.h"  // Include this line
+#include "monitor.h"
 #include "libc/string.h"
 #include "input.h"
 
-#define TICKS_PER_SECOND 10
+#define TICKS_PER_SECOND 200
 
 void timer_handler(registers_t* regs, void* data) {
     static uint32_t tick = 0;
-    tick++;
+    tick+=10;  
 
-    if (tick % TICKS_PER_SECOND == 0) {
+    if (tick % (TICKS_PER_SECOND * 10) == 0) {  
         char buffer[50];
-        int_to_string(tick / TICKS_PER_SECOND, buffer);
-        monitor_write("Uptime: ", 8);
+        int_to_string((tick) / TICKS_PER_SECOND, buffer);
+        monitor_write("Uptime: ", 10);
         monitor_write(buffer, strlen(buffer));
         monitor_write(" seconds\n", 9);
     }
 }
+
+
+
+
 
 void keyboard_handler(registers_t* regs, void* data) {
     uint8_t scancode = inb(0x60);
@@ -28,6 +32,7 @@ void keyboard_handler(registers_t* regs, void* data) {
     if (c) {
         monitor_put(c);
     }
+    
 }
 
 void irq2_handler(registers_t* regs, void* data) {
