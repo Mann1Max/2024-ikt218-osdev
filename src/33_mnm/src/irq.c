@@ -8,7 +8,7 @@
 
 #define TICKS_PER_SECOND 200
 
-void timer_handler(registers_t* regs, void* data) {
+void timer_handler(registers_t* regs, void* data) {//Printer hvert 10sekund
     static uint32_t tick = 0;
     tick+=10;  
 
