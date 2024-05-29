@@ -7,13 +7,6 @@ size_t strlen(const char* str) {
     return len;
 }
 
-void* memset(void* ptr, int value, size_t num) {
-    unsigned char* p = (unsigned char*)ptr;
-    while (num--) {
-        *p++ = (unsigned char)value;
-    }
-    return ptr;
-}
 
 void int_to_string(int value, char* buffer) {
     char* ptr = buffer;

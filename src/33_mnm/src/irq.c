@@ -21,10 +21,6 @@ void timer_handler(registers_t* regs, void* data) {//Printer hvert 10sekund
     }
 }
 
-
-
-
-
 void keyboard_handler(registers_t* regs, void* data) {
     uint8_t scancode = inb(0x60);
     char c = scancode_to_ascii(&scancode);
@@ -32,7 +28,6 @@ void keyboard_handler(registers_t* regs, void* data) {
     if (c) {
         monitor_put(c);
     }
-    
 }
 
 void irq2_handler(registers_t* regs, void* data) {

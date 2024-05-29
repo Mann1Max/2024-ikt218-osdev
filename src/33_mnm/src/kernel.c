@@ -8,32 +8,31 @@
 #include "../include/idt.h"
 #include "../include/interrupts.h"
 #include "monitor.h"
+#include "memory.h"
+#include "pit.h"
 
-struct multiboot_info {
-    uint32_t size;
-    uint32_t reserved;
-    struct multiboot_tag *first;
-};
+    struct multiboot_info {
+        uint32_t size;
+        uint32_t reserved;
+        struct multiboot_tag *first;
+    };
 
-int kernel_main();
+    int kernel_main();
+    // End of the kernel image, defined elsewhere.
+    extern uint32_t end;
 
 
-int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
+    int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
+      // Initialize the monitor (screen output)
     monitor_initialize();
     init_gdt();
     init_idt();
+
     init_irq();
-
-    asm volatile("sti");
-
-   char* hello_world = "Hello World!\n";
-    size_t len = strlen(hello_world);
-    monitor_write(hello_world, len);
-
-    asm volatile("int $0x1");
-    asm volatile("int $0x2");
-    asm volatile("int $0x3");
-    asm volatile("int $0x22");
-    // Call cpp kernel_main (defined in kernel.cpp)
-    return kernel_main();
-}
+    init_kernel_memory(&end);
+    init_paging();
+    print_memory_layout();
+    init_pit();
+        
+        return kernel_main();
+    }
