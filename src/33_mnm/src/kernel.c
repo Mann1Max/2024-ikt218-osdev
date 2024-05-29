@@ -10,6 +10,8 @@
 #include "monitor.h"
 #include "memory.h"
 #include "pit.h"
+#include "song.h"
+
 
     struct multiboot_info {
         uint32_t size;
@@ -20,6 +22,8 @@
     int kernel_main();
     // End of the kernel image, defined elsewhere.
     extern uint32_t end;
+
+
 
 
     int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
@@ -33,6 +37,8 @@
     init_paging();
     print_memory_layout();
     init_pit();
+
+    asm volatile("sti");
         
         return kernel_main();
     }

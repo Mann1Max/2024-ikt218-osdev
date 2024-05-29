@@ -5,6 +5,7 @@
 #include "monitor.h"
 #include "libc/string.h"
 #include "input.h"
+#include "pit.h"
 
 #define TICKS_PER_SECOND 200
 
@@ -40,7 +41,6 @@ void init_irq() {
         irq_handlers[i].handler = NULL;
         irq_handlers[i].num = i;
     }
-    register_irq_handler(IRQ0, timer_handler, NULL);
     register_irq_handler(IRQ1, keyboard_handler, NULL);
     register_irq_handler(IRQ2, irq2_handler, NULL);
 }

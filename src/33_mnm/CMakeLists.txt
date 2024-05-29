@@ -74,7 +74,7 @@ add_executable(uiaos-kernel
     src/libc/stdio.c
 	src/input.c
 	src/libc/panic.c
-
+	src/song.c
 	src/isrA.asm
 	src/start.asm
 

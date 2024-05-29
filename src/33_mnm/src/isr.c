@@ -6,10 +6,10 @@
 #include "common.h"
 
 
-void register_interrupt_handler(uint8_t n, isr_t handler, void* context)
+void register_interrupt_handler(uint8_t n, isr_t handler,void *)
 {
     int_handlers[n].handler = handler;
-    int_handlers[n].data = context;
+
 }
 
 void breakpoint_handler(registers_t* regs, void* context) {

@@ -1,6 +1,4 @@
-#ifndef PIT_H
-#define PIT_H
-
+#pragma once
 #include "libc/stdint.h"
 #include "libc/stdbool.h"
 
@@ -25,8 +23,7 @@
 #define TICKS_PER_MS (TARGET_FREQUENCY / TARGET_FREQUENCY)
 
 
+
 void init_pit();
 void sleep_interrupt(uint32_t milliseconds);
 void sleep_busy(uint32_t milliseconds);
-#endif
-
